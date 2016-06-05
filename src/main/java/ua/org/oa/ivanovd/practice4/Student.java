@@ -1,15 +1,19 @@
 package ua.org.oa.ivanovd.practice4;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Created by Администратор on 25.04.2016.
+ * Created by Администратор on 06.06.2016.
  */
 public class Student {
+
     private String firstName;
-    private String secondName;
+    private String lastName;
     private int course;
+
+    public Student(String firstName, String lastName, int course) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.course = course;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -19,12 +23,12 @@ public class Student {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getCourse() {
@@ -36,31 +40,15 @@ public class Student {
     }
 
 
-    public Student(){
-
-    }
-
-    public Student (String firstName, String secondName, int course) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.course = course;
-    }
-
-    public String getKey(){
-        String keyForMap = getFirstName() + " " + getSecondName();
-        return keyForMap;
-    }
-
-
-
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", course=" + course +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -70,15 +58,15 @@ public class Student {
         Student student = (Student) o;
 
         if (course != student.course) return false;
-        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
-        return secondName != null ? secondName.equals(student.secondName) : student.secondName == null;
+        if (!firstName.equals(student.firstName)) return false;
+        return lastName.equals(student.lastName);
 
     }
 
     @Override
     public int hashCode() {
-        int result = firstName != null ? firstName.hashCode() : 0;
-        result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
         result = 31 * result + course;
         return result;
     }

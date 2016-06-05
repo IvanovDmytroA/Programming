@@ -3,63 +3,43 @@ package ua.org.oa.ivanovd.practice4;
 import java.util.*;
 
 /**
- * Created by Администратор on 25.04.2016.
+ * Created by Администратор on 06.06.2016.
  */
 public class StudentUtils {
 
-    List<Student> students = new ArrayList<>();
-    Student student = new Student();
-
-    public static Map<String, Student> createMapFromList(List<Student> students){
-        HashMap<String, Student> studentHashMap = new HashMap<>();
-        for (Student student : students) {
-            String studentKey = student.getKey();
-            studentHashMap.put(studentKey, student);
+    public static Map<String, Student> creatMapFromList (List<Student> students) {
+        Map<String, Student> student = new HashMap<>();
+        for (Student stud : students) {
+            student.put(stud.getFirstName() + " " + stud.getLastName(), stud);
         }
-        return studentHashMap;
+        for (Map.Entry<String, Student> entry : student.entrySet()) {
+            System.out.println(entry);
+        }
+        return student;
     }
 
-
     public static void printStudent (List<Student> students, int course) {
-        Iterator<Student> studentIterator = students.iterator();
-        while (studentIterator.hasNext()) {
-            if (studentIterator.next().getCourse() == course) {
-                System.out.println(studentIterator.toString());
+        Iterator<Student> iterator = students.iterator();
+            while (iterator.hasNext()) {
+            Student st = iterator.next();
+            if (st.getCourse() == course) {
+                System.out.println(st.getFirstName() + " " + st.getLastName());
             }
         }
     }
 
-
-    public static List<Student> sortStudent (List students){
-
-        return null;
+    public static List<Student> sortStudent (List<Student> students) {
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student student1, Student student2) {
+                return student1.getFirstName().compareTo(student2.getFirstName());
+            }
+        });
+        for (Student student : students) {
+            System.out.println(student);
+        }
+        return students;
     }
 
 
-    @Override
-    public String toString() {
-        return "StudentUtils{" +
-                "students=" + students +
-                ", student=" + student +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        StudentUtils that = (StudentUtils) o;
-
-        if (students != null ? !students.equals(that.students) : that.students != null) return false;
-        return student != null ? student.equals(that.student) : that.student == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = students != null ? students.hashCode() : 0;
-        result = 31 * result + (student != null ? student.hashCode() : 0);
-        return result;
-    }
 }
