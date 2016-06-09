@@ -16,7 +16,7 @@ public class App {
         App.getMaxElement(masInteger);
         App.getMaxElement(masString);
         App.getMaxElement(masComputer);
-        //  App.getMaxElement(masAuto);
+        //  Parser.getMaxElement(masAuto);
     }
 
     public static<T extends Comparable<T>> void getMaxElement(T[] array) {

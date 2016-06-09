@@ -22,7 +22,7 @@ public class App {
         students.add(student3);
         students.add(student4);
 
-        System.out.println("~~~Student Utils~~~");
+        System.out.println("~~~~Student Utils~~~~");
         System.out.println();
 
         StudentUtils.creatMapFromList(students);
@@ -34,7 +34,7 @@ public class App {
         StudentUtils.sortStudent(students);
         System.out.println();
 
-        System.out.println("~~~Read Utils~~~");
+        System.out.println("~~~~Read Utils~~~~");
         System.out.println();
 
         ReadUtils reader = new ReadUtils();
