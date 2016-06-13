@@ -10,6 +10,15 @@ public class Report {
     private long id;
     private Book book;
     private User user;
-    private Date rent;
-    private Date returns;
+
+    public Report(long id, Book book, User user) {
+        this.id = id;
+        this.book = book;
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Report: user " + user + " - book " + book;
+    }
 }

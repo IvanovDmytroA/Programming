@@ -61,8 +61,7 @@ public class GenericStorage<K, V> {
     public void remove(V value){
         for (Node<K, V> kvNode : nodeList) {
             if(kvNode.getKey().equals(value)) {
-                nodeList.remove(kvNode.getValue());
-                nodeList.remove(kvNode.getKey());
+                nodeList.remove(kvNode);
             }
         }
     }
