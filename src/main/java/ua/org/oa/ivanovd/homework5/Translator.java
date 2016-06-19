@@ -18,7 +18,7 @@ public class Translator {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "windows-1251"))) {
             String str;
             while ((str = br.readLine()) != null) {
-                String[] strings = str.split("=");
+                String[] strings = str.split("-");
                 dictionary.put(strings[0], strings[1]);
             }
         } catch (IOException e) {
@@ -49,11 +49,11 @@ public class Translator {
     public static void execution() throws Exception {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Type the filename to translate: ");
+        System.out.print("File to translate: ");
         String fileName = sc.nextLine();
         File file = new File(Translator.DIRECTORY.concat("\\").concat(fileName));
         if (!file.exists()) {
-            throw new Exception("There is no such file");
+            throw new Exception("No file");
         }
 
         if (fileName.contains("ru")) {
@@ -62,18 +62,18 @@ public class Translator {
             System.out.print("Available translation directions: en-ru\n");
         }
 
-        System.out.print("Type the translation direction: ");
+        System.out.print("Choose direction: ");
         String translationDirection = sc.nextLine();
         String dictionaryName = translationDirection.concat(".txt");
         file = new File(Translator.DIRECTORY.concat("\\").concat(dictionaryName));
         if (!file.exists()) {
-            throw new Exception("There is no such dictionary");
+            throw new Exception("No dictionary");
         }
 
         System.out.println("Translation: " +
                 Translator.translate(fileName, Translator.readDictionary(dictionaryName)));
 
-        System.out.print("\nContinue [Y]es / [N]o: ");
+        System.out.print("\nContinue Yes / No: ");
         String isContinue = sc.nextLine();
         if (isContinue.equals("Y")) {
             System.out.println();
