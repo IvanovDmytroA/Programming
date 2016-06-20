@@ -1,4 +1,4 @@
-package ua.org.oa.ivanovd.practice6;
+package ua.org.oa.ivanovd.practice6.threads;
 
 /**
  * Created by Администратор on 26.05.2016.
