@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 
-    public static StringBuffer upendStrings(String string) {
+    public static String upendStrings(String string) {
         int charPosition = string.length() - 1;
         StringBuffer str = new StringBuffer();
         while (charPosition >= 0) {
             str.append(string.charAt(charPosition));
             charPosition--;
         }
-        return str;
+        return str.toString();
     }
 
     public static boolean checkPalindrome(String string) {
@@ -26,7 +26,7 @@ public class StringUtils {
         for (String s : listWithWords) {
             strBuffer.append(s);
         }
-        StringBuffer upendentString = upendStrings(strBuffer.toString());
+        String upendentString = upendStrings(strBuffer.toString());
         return strBuffer.toString().equalsIgnoreCase(upendentString.toString());
     }
 

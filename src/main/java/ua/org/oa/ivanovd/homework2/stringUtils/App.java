@@ -12,10 +12,10 @@ public class App {
         System.out.println("Меняем местами первое и последнее слово: "
                 + StringUtils.swapWords("What a beautiful read. It was insane game. Ggs, guys!"));
         System.out.println("Меняем местами первое и последнее слово в каждом предложении: "
-                + StringUtils.swapWordsInSentences("I can't tell you anithing about that. Even if you deserve this."));
+                + StringUtils.swapWordsInSentences("I can't tell you anything about that. Even if you deserve this."));
         System.out.println("В строке только буквы a, b, c: " + StringUtils.checkCharacters("aaabbcccccd"));
         System.out.println("Является ли строка датой: " + StringUtils.isDate("09.11.1982"));
-        System.out.println("Является ли строка электронным адресом: " + StringUtils.isEmail("hfzlbvf3003@gmail.ru"));
+        System.out.println("Является ли строка электронным адресом: " + StringUtils.isEmail("hfzlbvf3003@gmail.com"));
         System.out.println("Номера телефонов: " + StringUtils.findPhoneNumbers("+8(057)222-12-31 и +8(055)56-483-12"));
     }
 }
